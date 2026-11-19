@@ -1,0 +1,159 @@
+{
+ "actions": [],
+ "autoname": "field:module_name",
+ "creation": "2026-11-19 00:30:00.000000",
+ "custom": 0,
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "module_name",
+  "module_code",
+  "default_assignee",
+  "keywords",
+  "is_active",
+  "cb_scope",
+  "project",
+  "vendor"
+ ],
+ "fields": [
+  {
+   "fieldname": "module_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Module Name",
+   "reqd": 1,
+   "unique": 1
+  },
+  {
+   "description": "Short code used in issue codes and message tags, e.g. BIL",
+   "fieldname": "module_code",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Module Code",
+   "length": 6,
+   "reqd": 1,
+   "unique": 1
+  },
+  {
+   "description": "Developer assigned automatically when an issue in this module is triaged",
+   "fieldname": "default_assignee",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Default Assignee",
+   "options": "User"
+  },
+  {
+   "description": "Comma-separated words used to guess this module from incoming messages, e.g. bill, cashier, receipt",
+   "fieldname": "keywords",
+   "fieldtype": "Small Text",
+   "label": "Keywords"
+  },
+  {
+   "default": "1",
+   "fieldname": "is_active",
+   "fieldtype": "Check",
+   "label": "Is Active"
+  },
+  {
+   "fieldname": "cb_scope",
+   "fieldtype": "Column Break"
+  },
+  {
+   "description": "Leave blank to share this module with every project",
+   "fieldname": "project",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Project",
+   "options": "QA Project"
+  },
+  {
+   "description": "Vendor that owns this module; its tickets go to this vendor",
+   "fieldname": "vendor",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Vendor",
+   "options": "QA Vendor"
+  }
+ ],
+ "links": [],
+ "modified": "2026-11-19 00:30:00.000000",
+ "modified_by": "Administrator",
+ "module": "QA Tracker",
+ "name": "QA Module",
+ "naming_rule": "By fieldname",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "QA Lead",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "QA Tester"
+  },
+  {
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Vendor Developer"
+  },
+  {
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "UAT User"
+  },
+  {
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "QA Viewer"
+  },
+  {
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "GA Analyst"
+  },
+  {
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "GA Approver"
+  }
+ ],
+ "search_fields": "module_code",
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

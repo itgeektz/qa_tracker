@@ -1,0 +1,22 @@
+{
+ "name": "QA Tracker",
+ "short_name": "QA",
+ "start_url": "/qa",
+ "scope": "/qa",
+ "display": "standalone",
+ "background_color": "#ffffff",
+ "theme_color": "#0F766E",
+ "icons": [
+  {
+   "src": "/assets/qa_tracker/qa/icon-192.png",
+   "sizes": "192x192",
+   "type": "image/png"
+  },
+  {
+   "src": "/assets/qa_tracker/qa/icon-512.png",
+   "sizes": "512x512",
+   "type": "image/png",
+   "purpose": "any maskable"
+  }
+ ]
+}

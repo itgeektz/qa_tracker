@@ -1,0 +1,296 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "field:project_name",
+ "creation": "2026-11-19 00:30:00.000000",
+ "custom": 0,
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "project_name",
+  "project_code",
+  "client",
+  "status",
+  "parent_qa_project",
+  "is_group",
+  "cb1",
+  "root_site",
+  "start_date",
+  "go_live_date",
+  "project_lead",
+  "sb_vendors",
+  "vendors",
+  "sb_members",
+  "members",
+  "sb_alloc",
+  "allocations",
+  "lft",
+  "rgt",
+  "old_parent",
+  "sb_chat",
+  "raven_channel",
+  "teams_webhook_url",
+  "cb_chat",
+  "gchat_webhook_url",
+  "sb_desc",
+  "description"
+ ],
+ "fields": [
+  {
+   "fieldname": "project_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Project Name",
+   "reqd": 1,
+   "unique": 1
+  },
+  {
+   "description": "Short code used as a message tag, e.g. #MEDX",
+   "fieldname": "project_code",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Project Code",
+   "length": 8,
+   "reqd": 1,
+   "unique": 1
+  },
+  {
+   "fieldname": "client",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Client / Organisation"
+  },
+  {
+   "default": "Active",
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Status",
+   "options": "Planning\nActive\nOn Hold\nGo-Live\nClosed"
+  },
+  {
+   "description": "Make this a sub-project (phase, workstream). Members of the parent see it too.",
+   "fieldname": "parent_qa_project",
+   "fieldtype": "Link",
+   "in_standard_filter": 1,
+   "label": "Parent Project",
+   "options": "QA Project"
+  },
+  {
+   "default": "0",
+   "fieldname": "is_group",
+   "fieldtype": "Check",
+   "label": "Has Sub-projects"
+  },
+  {
+   "fieldname": "cb1",
+   "fieldtype": "Column Break"
+  },
+  {
+   "description": "The project covers this site and everything under it. Leave blank for all sites.",
+   "fieldname": "root_site",
+   "fieldtype": "Link",
+   "label": "Site Tree Root",
+   "options": "QA Site"
+  },
+  {
+   "fieldname": "start_date",
+   "fieldtype": "Date",
+   "label": "Start Date"
+  },
+  {
+   "fieldname": "go_live_date",
+   "fieldtype": "Date",
+   "label": "Go-Live Date"
+  },
+  {
+   "fieldname": "project_lead",
+   "fieldtype": "Link",
+   "label": "Project QA Lead",
+   "options": "User"
+  },
+  {
+   "fieldname": "sb_vendors",
+   "fieldtype": "Section Break",
+   "label": "Vendors"
+  },
+  {
+   "fieldname": "vendors",
+   "fieldtype": "Table",
+   "label": "Vendors",
+   "options": "QA Project Vendor"
+  },
+  {
+   "description": "Only members see this project. Vendor staff see only their vendor's work.",
+   "fieldname": "sb_members",
+   "fieldtype": "Section Break",
+   "label": "Team"
+  },
+  {
+   "fieldname": "members",
+   "fieldtype": "Table",
+   "label": "Members",
+   "options": "QA Project Member"
+  },
+  {
+   "description": "Limit a team member to sites and/or areas. A person with no rows here sees the whole project. One row = one site + area combination they cover.",
+   "fieldname": "sb_alloc",
+   "fieldtype": "Section Break",
+   "label": "Allocations (optional limits)"
+  },
+  {
+   "fieldname": "allocations",
+   "fieldtype": "Table",
+   "label": "Allocations",
+   "options": "QA Project Allocation"
+  },
+  {
+   "fieldname": "lft",
+   "fieldtype": "Int",
+   "hidden": 1,
+   "label": "Left",
+   "no_copy": 1,
+   "read_only": 1,
+   "search_index": 1
+  },
+  {
+   "fieldname": "rgt",
+   "fieldtype": "Int",
+   "hidden": 1,
+   "label": "Right",
+   "no_copy": 1,
+   "read_only": 1,
+   "search_index": 1
+  },
+  {
+   "fieldname": "old_parent",
+   "fieldtype": "Link",
+   "hidden": 1,
+   "label": "Old Parent",
+   "options": "QA Project",
+   "read_only": 1
+  },
+  {
+   "collapsible": 1,
+   "fieldname": "sb_chat",
+   "fieldtype": "Section Break",
+   "label": "Project chat channels (optional, override QA Settings)"
+  },
+  {
+   "description": "Messages in this Raven channel become tickets of this project",
+   "fieldname": "raven_channel",
+   "fieldtype": "Data",
+   "label": "Raven Channel ID"
+  },
+  {
+   "fieldname": "teams_webhook_url",
+   "fieldtype": "Small Text",
+   "label": "Teams Workflow Webhook URL"
+  },
+  {
+   "fieldname": "cb_chat",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "gchat_webhook_url",
+   "fieldtype": "Small Text",
+   "label": "Google Chat Webhook URL"
+  },
+  {
+   "collapsible": 1,
+   "fieldname": "sb_desc",
+   "fieldtype": "Section Break",
+   "label": "Description"
+  },
+  {
+   "fieldname": "description",
+   "fieldtype": "Text Editor",
+   "label": "Description"
+  }
+ ],
+ "is_tree": 1,
+ "links": [],
+ "modified": "2026-11-19 00:30:00.000000",
+ "modified_by": "Administrator",
+ "module": "QA Tracker",
+ "name": "QA Project",
+ "naming_rule": "By fieldname",
+ "nsm_parent_field": "parent_qa_project",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "QA Lead",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "QA Tester"
+  },
+  {
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Vendor Developer"
+  },
+  {
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "UAT User"
+  },
+  {
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "QA Viewer"
+  },
+  {
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "GA Analyst"
+  },
+  {
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "GA Approver"
+  }
+ ],
+ "search_fields": "project_code,client",
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "title_field": "project_name",
+ "track_changes": 1
+}

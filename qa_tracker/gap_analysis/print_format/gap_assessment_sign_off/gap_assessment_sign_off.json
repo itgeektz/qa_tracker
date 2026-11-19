@@ -1,0 +1,22 @@
+{
+ "doctype": "Print Format",
+ "name": "Gap Assessment Sign-off",
+ "doc_type": "Gap Assessment",
+ "module": "Gap Analysis",
+ "standard": "Yes",
+ "custom_format": 1,
+ "print_format_type": "Jinja",
+ "print_format_builder": 0,
+ "disabled": 0,
+ "html": "<style>\n.gs h2{margin:0 0 4px} .gs .muted{color:#667085;font-size:11px}\n.gs table{width:100%;border-collapse:collapse;font-size:10.5px;margin-top:8px}\n.gs th,.gs td{border:1px solid #D0D5DD;padding:4px 5px;vertical-align:top;text-align:left}\n.gs th{background:#F2F4F7}\n.gs .kpi{display:inline-block;border:1px solid #D0D5DD;border-radius:6px;padding:6px 10px;margin:6px 6px 0 0}\n.gs .kpi b{font-size:15px;display:block}\n.gs .sig{margin-top:36px;width:100%} .gs .sig td{border:none;padding-top:28px;width:33%}\n.gs .line{border-top:1px solid #344054;padding-top:4px}\n</style>\n<div class=\"gs\">\n<h2>Gap Analysis Sign-off: {{ doc.assessment_name }}</h2>\n<div class=\"muted\">{{ doc.site or \"\" }}{% if doc.module %} \u00b7 {{ doc.module }}{% endif %}{% if doc.workshop_date %} \u00b7 Workshop {{ frappe.format(doc.workshop_date, {\"fieldtype\": \"Date\"}) }}{% endif %}{% if doc.facilitator %} \u00b7 Facilitator {{ frappe.db.get_value(\"User\", doc.facilitator, \"full_name\") }}{% endif %}</div>\n{% if doc.scope %}<p><b>Scope:</b> {{ doc.scope }}</p>{% endif %}\n<div>\n<span class=\"kpi\"><b>{{ doc.total_items or 0 }}</b>Items</span>\n<span class=\"kpi\"><b>{{ doc.fit_count or 0 }}</b>Fit</span>\n<span class=\"kpi\"><b>{{ doc.partial_count or 0 }}</b>Partial fit</span>\n<span class=\"kpi\"><b>{{ doc.gap_count or 0 }}</b>Gaps</span>\n<span class=\"kpi\"><b>{{ doc.fit_percent or 0 }}%</b>Fit</span>\n<span class=\"kpi\"><b>{{ doc.open_must_haves or 0 }}</b>Open must-haves</span>\n<span class=\"kpi\"><b>{{ doc.total_effort_days or 0 }}</b>Effort (days)</span>\n</div>\n{% set gaps = frappe.get_list(\"Gap Item\", filters={\"assessment\": doc.name}, fields=[\"name\", \"gap_code\", \"title\", \"fit_status\", \"priority\", \"resolution_approach\", \"proposed_solution\", \"workaround\", \"responsible_party\", \"effort_days\", \"target_release\", \"status\", \"decision\"], order_by=\"fit_status asc, priority asc, name asc\", limit_page_length=0) %}\n<table>\n<thead><tr><th>#</th><th>Code</th><th>Requirement / gap</th><th>Fit</th><th>Priority</th><th>Resolution</th><th>Proposed solution / workaround</th><th>By</th><th>Days</th><th>Release</th><th>Status</th></tr></thead>\n<tbody>\n{% for g in gaps %}\n<tr><td>{{ loop.index }}</td><td>{{ g.gap_code or g.name }}</td><td>{{ g.title }}</td><td>{{ g.fit_status }}</td><td>{{ g.priority }}</td><td>{{ g.resolution_approach or \"\" }}</td>\n<td>{{ g.proposed_solution or \"\" }}{% if g.workaround %}<br><i>Workaround:</i> {{ g.workaround }}{% endif %}</td><td>{{ g.responsible_party or \"\" }}</td><td>{{ g.effort_days or \"\" }}</td><td>{{ g.target_release or \"\" }}</td><td>{{ g.status }}{% if g.decision and g.decision != \"Pending\" %} ({{ g.decision }}){% endif %}</td></tr>\n{% endfor %}\n</tbody></table>\n{% if doc.participants %}\n<p style=\"margin-top:14px\"><b>Participants:</b> {% for p in doc.participants %}{{ p.participant_name }}{% if p.department %} ({{ p.department }}){% endif %}{% if not loop.last %}, {% endif %}{% endfor %}</p>\n{% endif %}\n{% if doc.signoff_comments %}<p><b>Comments:</b> {{ doc.signoff_comments }}</p>{% endif %}\n<table class=\"sig\"><tr>\n<td><div class=\"line\">Business approver{% if doc.approver %}: {{ frappe.db.get_value(\"User\", doc.approver, \"full_name\") }}{% endif %}</div>{% if doc.signed_off_on %}<div class=\"muted\">Signed off in system {{ frappe.format(doc.signed_off_on, {\"fieldtype\": \"Datetime\"}) }}</div>{% endif %}</td>\n<td><div class=\"line\">QA / project lead</div></td>\n<td><div class=\"line\">Vendor representative</div></td>\n</tr></table>\n</div>",
+ "creation": "2026-11-18 04:00:00.000000",
+ "modified": "2026-11-18 05:00:00.000000",
+ "owner": "Administrator",
+ "modified_by": "Administrator",
+ "docstatus": 0,
+ "font_size": 0,
+ "line_breaks": 0,
+ "align_labels_right": 0,
+ "show_section_headings": 0,
+ "raw_printing": 0
+}

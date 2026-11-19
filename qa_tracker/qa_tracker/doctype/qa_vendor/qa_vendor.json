@@ -1,0 +1,210 @@
+{
+ "actions": [],
+ "autoname": "field:vendor_name",
+ "creation": "2026-11-19 00:30:00.000000",
+ "custom": 0,
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "vendor_name",
+  "vendor_code",
+  "product",
+  "is_active",
+  "cb1",
+  "contact_name",
+  "contact_email",
+  "contact_phone",
+  "website",
+  "sb_sla",
+  "sla_blocker_days",
+  "sla_high_days",
+  "cb2",
+  "sla_medium_days",
+  "sla_low_days",
+  "sb_notes",
+  "notes"
+ ],
+ "fields": [
+  {
+   "fieldname": "vendor_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Vendor Name",
+   "reqd": 1,
+   "unique": 1
+  },
+  {
+   "description": "Short code, e.g. TRILO",
+   "fieldname": "vendor_code",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Vendor Code",
+   "length": 8,
+   "reqd": 1,
+   "unique": 1
+  },
+  {
+   "description": "e.g. MedX HMIS",
+   "fieldname": "product",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Product / System"
+  },
+  {
+   "default": "1",
+   "fieldname": "is_active",
+   "fieldtype": "Check",
+   "in_list_view": 1,
+   "label": "Is Active"
+  },
+  {
+   "fieldname": "cb1",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "contact_name",
+   "fieldtype": "Data",
+   "label": "Contact Name"
+  },
+  {
+   "fieldname": "contact_email",
+   "fieldtype": "Data",
+   "label": "Contact Email",
+   "options": "Email"
+  },
+  {
+   "fieldname": "contact_phone",
+   "fieldtype": "Data",
+   "label": "Contact Phone"
+  },
+  {
+   "fieldname": "website",
+   "fieldtype": "Data",
+   "label": "Website"
+  },
+  {
+   "fieldname": "sb_sla",
+   "fieldtype": "Section Break",
+   "label": "Fix SLA (days from assignment to fix)"
+  },
+  {
+   "default": "1",
+   "fieldname": "sla_blocker_days",
+   "fieldtype": "Int",
+   "label": "Blocker"
+  },
+  {
+   "default": "3",
+   "fieldname": "sla_high_days",
+   "fieldtype": "Int",
+   "label": "High"
+  },
+  {
+   "fieldname": "cb2",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "7",
+   "fieldname": "sla_medium_days",
+   "fieldtype": "Int",
+   "label": "Medium"
+  },
+  {
+   "default": "14",
+   "fieldname": "sla_low_days",
+   "fieldtype": "Int",
+   "label": "Low"
+  },
+  {
+   "collapsible": 1,
+   "fieldname": "sb_notes",
+   "fieldtype": "Section Break",
+   "label": "Notes"
+  },
+  {
+   "fieldname": "notes",
+   "fieldtype": "Small Text",
+   "label": "Notes"
+  }
+ ],
+ "links": [],
+ "modified": "2026-11-19 00:30:00.000000",
+ "modified_by": "Administrator",
+ "module": "QA Tracker",
+ "name": "QA Vendor",
+ "naming_rule": "By fieldname",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "QA Lead",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "QA Tester"
+  },
+  {
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Vendor Developer"
+  },
+  {
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "UAT User"
+  },
+  {
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "QA Viewer"
+  },
+  {
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "GA Analyst"
+  },
+  {
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "GA Approver"
+  }
+ ],
+ "search_fields": "vendor_code,product",
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "title_field": "vendor_name"
+}

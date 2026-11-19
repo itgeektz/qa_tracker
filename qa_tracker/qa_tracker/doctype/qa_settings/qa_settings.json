@@ -1,0 +1,383 @@
+{
+ "actions": [],
+ "creation": "2026-11-19 00:30:00.000000",
+ "custom": 0,
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "sb_def",
+  "default_project",
+  "default_site",
+  "default_module",
+  "default_test_cycle",
+  "cb1",
+  "group_window_minutes",
+  "auto_assign_on_triage",
+  "require_site_module_on_triage",
+  "sb_notify",
+  "notify_email",
+  "notify_whatsapp",
+  "notify_teams",
+  "public_base_url",
+  "sb_api",
+  "api_enabled",
+  "api_token",
+  "sb_wa",
+  "whatsapp_enabled",
+  "whatsapp_phone_number_id",
+  "whatsapp_access_token",
+  "cb_wa",
+  "whatsapp_verify_token",
+  "whatsapp_app_secret",
+  "whatsapp_api_version",
+  "whatsapp_template",
+  "sb_teams",
+  "teams_enabled",
+  "teams_outgoing_secret",
+  "cb_teams",
+  "teams_notify_webhook_url",
+  "sb_raven",
+  "raven_enabled",
+  "raven_channel",
+  "raven_bot",
+  "cb_raven",
+  "raven_post_status",
+  "raven_dm_notifications",
+  "sb_tg",
+  "telegram_enabled",
+  "telegram_bot_token",
+  "cb_tg",
+  "telegram_secret",
+  "telegram_bot_username",
+  "sb_gchat",
+  "gchat_webhook_url",
+  "sb_portal",
+  "portal_title",
+  "portal_logo",
+  "cb_portal",
+  "portal_accent",
+  "portal_help"
+ ],
+ "fields": [
+  {
+   "fieldname": "sb_def",
+   "fieldtype": "Section Break",
+   "label": "Defaults for incoming messages"
+  },
+  {
+   "description": "Tickets go here when the sender belongs to several projects and no #PROJECT tag is given",
+   "fieldname": "default_project",
+   "fieldtype": "Link",
+   "label": "Default Project",
+   "options": "QA Project"
+  },
+  {
+   "fieldname": "default_site",
+   "fieldtype": "Link",
+   "label": "Default Site",
+   "options": "QA Site"
+  },
+  {
+   "fieldname": "default_module",
+   "fieldtype": "Link",
+   "label": "Default Module",
+   "options": "QA Module"
+  },
+  {
+   "fieldname": "default_test_cycle",
+   "fieldtype": "Link",
+   "label": "Default Test Cycle",
+   "options": "QA Test Cycle"
+  },
+  {
+   "fieldname": "cb1",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "10",
+   "description": "Chat messages and screenshots from the same sender within this window go into the same new ticket",
+   "fieldname": "group_window_minutes",
+   "fieldtype": "Int",
+   "label": "Group messages into one ticket within (minutes)"
+  },
+  {
+   "default": "1",
+   "fieldname": "auto_assign_on_triage",
+   "fieldtype": "Check",
+   "label": "Auto-assign module's default developer on triage"
+  },
+  {
+   "default": "1",
+   "fieldname": "require_site_module_on_triage",
+   "fieldtype": "Check",
+   "label": "Require Site Module On Triage"
+  },
+  {
+   "fieldname": "sb_notify",
+   "fieldtype": "Section Break",
+   "label": "Notifications"
+  },
+  {
+   "default": "1",
+   "fieldname": "notify_email",
+   "fieldtype": "Check",
+   "label": "Email notifications"
+  },
+  {
+   "default": "1",
+   "fieldname": "notify_whatsapp",
+   "fieldtype": "Check",
+   "label": "WhatsApp replies to reporters who used WhatsApp"
+  },
+  {
+   "default": "0",
+   "fieldname": "notify_teams",
+   "fieldtype": "Check",
+   "label": "Post status changes to Teams channel"
+  },
+  {
+   "description": "e.g. https://qa.yourhospital.co.ke - used in links sent to users",
+   "fieldname": "public_base_url",
+   "fieldtype": "Data",
+   "label": "Public Base URL"
+  },
+  {
+   "fieldname": "sb_api",
+   "fieldtype": "Section Break",
+   "label": "Generic Intake API (Power Automate, scripts)"
+  },
+  {
+   "default": "0",
+   "fieldname": "api_enabled",
+   "fieldtype": "Check",
+   "label": "Enable Intake API"
+  },
+  {
+   "description": "Send as header X-QA-Token",
+   "fieldname": "api_token",
+   "fieldtype": "Password",
+   "label": "API Token"
+  },
+  {
+   "fieldname": "sb_wa",
+   "fieldtype": "Section Break",
+   "label": "WhatsApp (Meta WhatsApp Business Cloud API)"
+  },
+  {
+   "default": "0",
+   "fieldname": "whatsapp_enabled",
+   "fieldtype": "Check",
+   "label": "Whatsapp Enabled"
+  },
+  {
+   "fieldname": "whatsapp_phone_number_id",
+   "fieldtype": "Data",
+   "label": "Phone Number ID"
+  },
+  {
+   "fieldname": "whatsapp_access_token",
+   "fieldtype": "Password",
+   "label": "Access Token"
+  },
+  {
+   "fieldname": "cb_wa",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "whatsapp_verify_token",
+   "fieldtype": "Data",
+   "label": "Webhook Verify Token"
+  },
+  {
+   "description": "Used to verify X-Hub-Signature-256",
+   "fieldname": "whatsapp_app_secret",
+   "fieldtype": "Password",
+   "label": "App Secret"
+  },
+  {
+   "default": "v21.0",
+   "fieldname": "whatsapp_api_version",
+   "fieldtype": "Data",
+   "label": "Graph API Version"
+  },
+  {
+   "description": "Optional approved template name with one body parameter",
+   "fieldname": "whatsapp_template",
+   "fieldtype": "Data",
+   "label": "Template for notifications outside 24h window"
+  },
+  {
+   "fieldname": "sb_teams",
+   "fieldtype": "Section Break",
+   "label": "Microsoft Teams"
+  },
+  {
+   "default": "0",
+   "fieldname": "teams_enabled",
+   "fieldtype": "Check",
+   "label": "Enable Teams Outgoing Webhook"
+  },
+  {
+   "description": "Shown by Teams when you create the outgoing webhook",
+   "fieldname": "teams_outgoing_secret",
+   "fieldtype": "Password",
+   "label": "Outgoing Webhook Security Token"
+  },
+  {
+   "fieldname": "cb_teams",
+   "fieldtype": "Column Break"
+  },
+  {
+   "description": "URL from a Teams Workflow 'When a Teams webhook request is received'",
+   "fieldname": "teams_notify_webhook_url",
+   "fieldtype": "Small Text",
+   "label": "Teams Workflow Webhook URL (for notifications)"
+  },
+  {
+   "fieldname": "sb_raven",
+   "fieldtype": "Section Break",
+   "label": "Raven (chat on this Frappe site)"
+  },
+  {
+   "default": "0",
+   "fieldname": "raven_enabled",
+   "fieldtype": "Check",
+   "label": "Enable Raven"
+  },
+  {
+   "description": "Messages and images posted in this Raven channel become tickets. Use 'Pick Raven Channel'.",
+   "fieldname": "raven_channel",
+   "fieldtype": "Data",
+   "label": "Raven Channel ID"
+  },
+  {
+   "default": "QA Tracker",
+   "description": "Created automatically when you enable Raven",
+   "fieldname": "raven_bot",
+   "fieldtype": "Data",
+   "label": "Raven Bot Name"
+  },
+  {
+   "fieldname": "cb_raven",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "1",
+   "fieldname": "raven_post_status",
+   "fieldtype": "Check",
+   "label": "Post status changes to the Raven channel"
+  },
+  {
+   "default": "1",
+   "fieldname": "raven_dm_notifications",
+   "fieldtype": "Check",
+   "label": "Send personal notifications as Raven direct messages"
+  },
+  {
+   "fieldname": "sb_tg",
+   "fieldtype": "Section Break",
+   "label": "Telegram"
+  },
+  {
+   "default": "0",
+   "fieldname": "telegram_enabled",
+   "fieldtype": "Check",
+   "label": "Enable Telegram"
+  },
+  {
+   "description": "From @BotFather",
+   "fieldname": "telegram_bot_token",
+   "fieldtype": "Password",
+   "label": "Bot Token"
+  },
+  {
+   "fieldname": "cb_tg",
+   "fieldtype": "Column Break"
+  },
+  {
+   "description": "Any random string; Telegram sends it back in every request",
+   "fieldname": "telegram_secret",
+   "fieldtype": "Data",
+   "label": "Webhook Secret"
+  },
+  {
+   "fieldname": "telegram_bot_username",
+   "fieldtype": "Data",
+   "label": "Bot Username",
+   "read_only": 1
+  },
+  {
+   "fieldname": "sb_gchat",
+   "fieldtype": "Section Break",
+   "label": "Google Chat (Google Workspace)"
+  },
+  {
+   "description": "Space > Apps & integrations > Webhooks. Posts status changes to the space.",
+   "fieldname": "gchat_webhook_url",
+   "fieldtype": "Small Text",
+   "label": "Google Chat Space Webhook URL"
+  },
+  {
+   "fieldname": "sb_portal",
+   "fieldtype": "Section Break",
+   "label": "Tester Portal (/qa)"
+  },
+  {
+   "default": "QA Tracker",
+   "fieldname": "portal_title",
+   "fieldtype": "Data",
+   "label": "Portal Title"
+  },
+  {
+   "fieldname": "portal_logo",
+   "fieldtype": "Attach Image",
+   "label": "Portal Logo"
+  },
+  {
+   "fieldname": "cb_portal",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "#0F766E",
+   "description": "Hex colour, e.g. #0F766E",
+   "fieldname": "portal_accent",
+   "fieldtype": "Data",
+   "label": "Accent Colour"
+  },
+  {
+   "description": "e.g. 'Paste a screenshot and say what went wrong. For urgent issues call ext 1234.'",
+   "fieldname": "portal_help",
+   "fieldtype": "Small Text",
+   "label": "Help Text on Report Screen"
+  }
+ ],
+ "issingle": 1,
+ "links": [],
+ "modified": "2026-11-19 00:30:00.000000",
+ "modified_by": "Administrator",
+ "module": "QA Tracker",
+ "name": "QA Settings",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "read": 1,
+   "role": "QA Lead",
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

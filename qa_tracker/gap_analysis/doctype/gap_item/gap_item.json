@@ -1,0 +1,606 @@
+{
+ "actions": [],
+ "autoname": "GAP-.#####",
+ "creation": "2026-11-19 00:30:00.000000",
+ "custom": 0,
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "tab_details",
+  "title",
+  "gap_code",
+  "status",
+  "assessment",
+  "project",
+  "vendor",
+  "cb1",
+  "fit_status",
+  "priority",
+  "business_impact",
+  "gap_type",
+  "cb2",
+  "site",
+  "module",
+  "process_name",
+  "department",
+  "sb_req",
+  "requirement",
+  "current_process",
+  "cb_req",
+  "system_behaviour",
+  "risk_if_not_addressed",
+  "regulatory",
+  "sb_source",
+  "source",
+  "reference",
+  "cb_src",
+  "raised_by",
+  "raised_on",
+  "created_from_issue",
+  "merged_into",
+  "sb_evid",
+  "evidence",
+  "tab_resolution",
+  "resolution_approach",
+  "proposed_solution",
+  "workaround",
+  "cb_res",
+  "responsible_party",
+  "assigned_to",
+  "business_owner",
+  "effort_days",
+  "estimated_cost",
+  "target_release",
+  "target_date",
+  "sb_decision",
+  "decision",
+  "decision_notes",
+  "cb_dec",
+  "approved_by",
+  "approved_on",
+  "sb_delivery",
+  "delivery_notes",
+  "delivered_in_build",
+  "delivered_on",
+  "cb_del",
+  "verification_result",
+  "verification_notes",
+  "verified_by",
+  "verified_on",
+  "verification_evidence",
+  "tab_links",
+  "linked_issues",
+  "linked_test_cases",
+  "tab_updates",
+  "updates",
+  "tab_more",
+  "closed_on",
+  "reopen_count"
+ ],
+ "fields": [
+  {
+   "fieldname": "tab_details",
+   "fieldtype": "Tab Break",
+   "label": "Details"
+  },
+  {
+   "fieldname": "title",
+   "fieldtype": "Data",
+   "in_global_search": 1,
+   "in_list_view": 1,
+   "label": "Gap / Requirement",
+   "length": 240,
+   "reqd": 1
+  },
+  {
+   "fieldname": "gap_code",
+   "fieldtype": "Data",
+   "in_global_search": 1,
+   "in_list_view": 1,
+   "label": "Gap Code",
+   "read_only": 1,
+   "search_index": 1
+  },
+  {
+   "default": "Identified",
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Status",
+   "options": "Identified\nAnalysed\nAwaiting Approval\nApproved\nIn Progress\nDelivered\nVerified\nClosed\nDeferred\nRejected\nMerged",
+   "read_only": 1
+  },
+  {
+   "fieldname": "assessment",
+   "fieldtype": "Link",
+   "in_standard_filter": 1,
+   "label": "Assessment",
+   "options": "Gap Assessment"
+  },
+  {
+   "fetch_from": "assessment.project",
+   "fetch_if_empty": 1,
+   "fieldname": "project",
+   "fieldtype": "Link",
+   "in_standard_filter": 1,
+   "label": "Project",
+   "options": "QA Project",
+   "search_index": 1
+  },
+  {
+   "fetch_from": "assessment.vendor",
+   "fetch_if_empty": 1,
+   "fieldname": "vendor",
+   "fieldtype": "Link",
+   "in_standard_filter": 1,
+   "label": "Vendor",
+   "options": "QA Vendor"
+  },
+  {
+   "fieldname": "cb1",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "Gap",
+   "fieldname": "fit_status",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Fit Status",
+   "options": "Gap\nPartial Fit\nFit\nNot Applicable",
+   "reqd": 1
+  },
+  {
+   "default": "Should Have",
+   "fieldname": "priority",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Priority (MoSCoW)",
+   "options": "Must Have\nShould Have\nCould Have\nWon't Have"
+  },
+  {
+   "default": "Medium",
+   "fieldname": "business_impact",
+   "fieldtype": "Select",
+   "label": "Business Impact",
+   "options": "High\nMedium\nLow"
+  },
+  {
+   "default": "Functional",
+   "fieldname": "gap_type",
+   "fieldtype": "Select",
+   "in_standard_filter": 1,
+   "label": "Gap Type",
+   "options": "Functional\nReporting\nIntegration\nRegulatory / Compliance\nData / Migration\nUsability\nProcess\nInfrastructure\nTraining"
+  },
+  {
+   "fieldname": "cb2",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "site",
+   "fieldtype": "Link",
+   "in_standard_filter": 1,
+   "label": "Site",
+   "options": "QA Site"
+  },
+  {
+   "fieldname": "module",
+   "fieldtype": "Link",
+   "in_standard_filter": 1,
+   "label": "Module / Process Area",
+   "options": "QA Module"
+  },
+  {
+   "fieldname": "process_name",
+   "fieldtype": "Data",
+   "label": "Process / Sub-process"
+  },
+  {
+   "fieldname": "department",
+   "fieldtype": "Data",
+   "label": "Department"
+  },
+  {
+   "fieldname": "sb_req",
+   "fieldtype": "Section Break",
+   "label": "Requirement"
+  },
+  {
+   "fieldname": "requirement",
+   "fieldtype": "Text Editor",
+   "label": "Business Requirement (what is needed)"
+  },
+  {
+   "fieldname": "current_process",
+   "fieldtype": "Small Text",
+   "label": "Current Way of Working (as-is)"
+  },
+  {
+   "fieldname": "cb_req",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "system_behaviour",
+   "fieldtype": "Small Text",
+   "label": "What the System Does Today"
+  },
+  {
+   "fieldname": "risk_if_not_addressed",
+   "fieldtype": "Small Text",
+   "label": "Risk if Not Addressed"
+  },
+  {
+   "fieldname": "regulatory",
+   "fieldtype": "Check",
+   "label": "Regulatory / Compliance Requirement (SHA, MOH, KRA, DHA...)"
+  },
+  {
+   "fieldname": "sb_source",
+   "fieldtype": "Section Break",
+   "label": "Source"
+  },
+  {
+   "default": "Workshop",
+   "fieldname": "source",
+   "fieldtype": "Select",
+   "in_standard_filter": 1,
+   "label": "Source",
+   "options": "Workshop\nSOP / Policy\nRegulation\nTesting / UAT\nUser Feedback\nContract / RFP\nGo-Live Issue"
+  },
+  {
+   "description": "SOP number, regulation clause, RFP item, ticket...",
+   "fieldname": "reference",
+   "fieldtype": "Data",
+   "label": "Source Reference"
+  },
+  {
+   "fieldname": "cb_src",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "raised_by",
+   "fieldtype": "Link",
+   "label": "Raised By",
+   "options": "User"
+  },
+  {
+   "fieldname": "raised_on",
+   "fieldtype": "Date",
+   "label": "Raised On"
+  },
+  {
+   "fieldname": "created_from_issue",
+   "fieldtype": "Link",
+   "label": "Created From QA Issue",
+   "options": "QA Issue",
+   "read_only": 1
+  },
+  {
+   "fieldname": "merged_into",
+   "fieldtype": "Link",
+   "label": "Merged Into",
+   "options": "Gap Item",
+   "read_only": 1
+  },
+  {
+   "fieldname": "sb_evid",
+   "fieldtype": "Section Break",
+   "label": "Evidence"
+  },
+  {
+   "fieldname": "evidence",
+   "fieldtype": "Table",
+   "label": "Evidence",
+   "options": "Gap Evidence"
+  },
+  {
+   "fieldname": "tab_resolution",
+   "fieldtype": "Tab Break",
+   "label": "Resolution"
+  },
+  {
+   "fieldname": "resolution_approach",
+   "fieldtype": "Select",
+   "in_standard_filter": 1,
+   "label": "Resolution Approach",
+   "options": "\nConfiguration\nCustomization / Development\nWorkaround\nProcess Change\nThird-party / Integration\nTraining\nFuture Release\nNot Required"
+  },
+  {
+   "fieldname": "proposed_solution",
+   "fieldtype": "Small Text",
+   "label": "Proposed Solution"
+  },
+  {
+   "fieldname": "workaround",
+   "fieldtype": "Small Text",
+   "label": "Interim Workaround"
+  },
+  {
+   "fieldname": "cb_res",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "responsible_party",
+   "fieldtype": "Select",
+   "in_standard_filter": 1,
+   "label": "Responsible Party",
+   "options": "\nVendor\nHospital IT\nBusiness Team\nThird Party"
+  },
+  {
+   "fieldname": "assigned_to",
+   "fieldtype": "Link",
+   "in_standard_filter": 1,
+   "label": "Assigned To (delivery)",
+   "options": "User"
+  },
+  {
+   "fieldname": "business_owner",
+   "fieldtype": "Link",
+   "in_standard_filter": 1,
+   "label": "Business Owner / Approver",
+   "options": "User"
+  },
+  {
+   "fieldname": "effort_days",
+   "fieldtype": "Float",
+   "label": "Effort (days)"
+  },
+  {
+   "fieldname": "estimated_cost",
+   "fieldtype": "Currency",
+   "label": "Estimated Cost"
+  },
+  {
+   "fieldname": "target_release",
+   "fieldtype": "Data",
+   "label": "Target Release"
+  },
+  {
+   "fieldname": "target_date",
+   "fieldtype": "Date",
+   "label": "Target Date"
+  },
+  {
+   "fieldname": "sb_decision",
+   "fieldtype": "Section Break",
+   "label": "Decision"
+  },
+  {
+   "default": "Pending",
+   "fieldname": "decision",
+   "fieldtype": "Select",
+   "in_standard_filter": 1,
+   "label": "Decision",
+   "options": "Pending\nApproved\nRejected\nDeferred",
+   "read_only": 1
+  },
+  {
+   "fieldname": "decision_notes",
+   "fieldtype": "Small Text",
+   "label": "Decision Notes"
+  },
+  {
+   "fieldname": "cb_dec",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "approved_by",
+   "fieldtype": "Link",
+   "label": "Decided By",
+   "options": "User",
+   "read_only": 1
+  },
+  {
+   "fieldname": "approved_on",
+   "fieldtype": "Datetime",
+   "label": "Decided On",
+   "read_only": 1
+  },
+  {
+   "fieldname": "sb_delivery",
+   "fieldtype": "Section Break",
+   "label": "Delivery & Verification"
+  },
+  {
+   "fieldname": "delivery_notes",
+   "fieldtype": "Small Text",
+   "label": "What Was Delivered"
+  },
+  {
+   "fieldname": "delivered_in_build",
+   "fieldtype": "Data",
+   "label": "Delivered In Build / Release"
+  },
+  {
+   "fieldname": "delivered_on",
+   "fieldtype": "Datetime",
+   "label": "Delivered On",
+   "read_only": 1
+  },
+  {
+   "fieldname": "cb_del",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "Pending",
+   "fieldname": "verification_result",
+   "fieldtype": "Select",
+   "label": "Verification Result",
+   "options": "Pending\nPass\nFail"
+  },
+  {
+   "fieldname": "verification_notes",
+   "fieldtype": "Small Text",
+   "label": "Verification Notes"
+  },
+  {
+   "fieldname": "verified_by",
+   "fieldtype": "Link",
+   "label": "Verified By",
+   "options": "User",
+   "read_only": 1
+  },
+  {
+   "fieldname": "verified_on",
+   "fieldtype": "Datetime",
+   "label": "Verified On",
+   "read_only": 1
+  },
+  {
+   "fieldname": "verification_evidence",
+   "fieldtype": "Table",
+   "label": "Verification Evidence",
+   "options": "Gap Evidence"
+  },
+  {
+   "fieldname": "tab_links",
+   "fieldtype": "Tab Break",
+   "label": "Links"
+  },
+  {
+   "fieldname": "linked_issues",
+   "fieldtype": "Table",
+   "label": "Related QA Issues",
+   "options": "Gap Issue Link"
+  },
+  {
+   "fieldname": "linked_test_cases",
+   "fieldtype": "Table",
+   "label": "Verification Test Cases",
+   "options": "Gap Test Link"
+  },
+  {
+   "fieldname": "tab_updates",
+   "fieldtype": "Tab Break",
+   "label": "Updates"
+  },
+  {
+   "fieldname": "updates",
+   "fieldtype": "Table",
+   "label": "Updates",
+   "options": "Gap Update",
+   "read_only": 1
+  },
+  {
+   "fieldname": "tab_more",
+   "fieldtype": "Tab Break",
+   "label": "More"
+  },
+  {
+   "fieldname": "closed_on",
+   "fieldtype": "Datetime",
+   "label": "Closed On",
+   "read_only": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "reopen_count",
+   "fieldtype": "Int",
+   "label": "Reopen Count",
+   "read_only": 1
+  }
+ ],
+ "links": [],
+ "modified": "2026-11-19 00:30:00.000000",
+ "modified_by": "Administrator",
+ "module": "Gap Analysis",
+ "name": "Gap Item",
+ "naming_rule": "Expression (old style)",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "QA Lead",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "GA Analyst",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "GA Approver",
+   "write": 1
+  },
+  {
+   "create": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Vendor Developer",
+   "write": 1
+  },
+  {
+   "create": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "QA Tester",
+   "write": 1
+  },
+  {
+   "create": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "UAT User",
+   "write": 1
+  },
+  {
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "QA Viewer"
+  }
+ ],
+ "search_fields": "title,gap_code,status,module",
+ "show_preview_popup": 1,
+ "show_title_field_in_link": 1,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "title_field": "title",
+ "track_changes": 1
+}
