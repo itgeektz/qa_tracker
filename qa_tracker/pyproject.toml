@@ -1,0 +1,17 @@
+[project]
+name = "qa_tracker"
+authors = [{ name = "QA Tracker contributors" }]
+description = "Software test, retest, confirmation and UAT tracking with screenshots, and email / WhatsApp / Teams ticket intake"
+requires-python = ">=3.10"
+readme = "README.md"
+dynamic = ["version"]
+dependencies = [
+    "python-docx>=1.1.0",
+]
+
+[build-system]
+requires = ["flit_core >=3.4,<4"]
+build-backend = "flit_core.buildapi"
+
+[tool.bench.frappe-dependencies]
+frappe = ">=14.0.0,<18.0.0"

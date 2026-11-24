@@ -1,0 +1,767 @@
+{
+ "actions": [],
+ "allow_rename": 0,
+ "autoname": "format:ISS-{#####}",
+ "creation": "2026-11-23 01:00:00.000000",
+ "custom": 0,
+ "doctype": "DocType",
+ "email_append_to": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "tab_details",
+  "title",
+  "issue_code",
+  "status",
+  "issue_type",
+  "cb1",
+  "severity",
+  "found_in_phase",
+  "project",
+  "site",
+  "module",
+  "vendor",
+  "cb2",
+  "screen",
+  "test_cycle",
+  "test_case",
+  "test_execution",
+  "sb_shots",
+  "screenshots",
+  "media_files",
+  "sb_desc",
+  "description",
+  "steps_to_reproduce",
+  "expected_result",
+  "cb_desc",
+  "actual_result",
+  "environment",
+  "build_found",
+  "sb_people",
+  "reported_by",
+  "raised_by_email",
+  "raised_by_phone",
+  "reporter_name",
+  "source_channel",
+  "reported_on",
+  "cb3",
+  "assigned_to",
+  "support_level",
+  "vendor_ref",
+  "target_date",
+  "tab_updates",
+  "sb_updates",
+  "updates",
+  "tab_fix",
+  "sb_fix",
+  "root_cause",
+  "resolution",
+  "cb4",
+  "fixed_in_build",
+  "fixed_by",
+  "fixed_on",
+  "sb_retest",
+  "retest_result",
+  "retest_build",
+  "retest_notes",
+  "cb5",
+  "retest_by",
+  "retest_on",
+  "retest_count",
+  "retest_screenshots",
+  "sb_confirm",
+  "confirmed_by",
+  "cb6",
+  "confirmed_on",
+  "tab_uat",
+  "sb_uat",
+  "uat_result",
+  "uat_notes",
+  "cb7",
+  "uat_by",
+  "uat_on",
+  "uat_screenshots",
+  "tab_more",
+  "sb_track",
+  "reopen_count",
+  "closed_on",
+  "escalated_on",
+  "escalated_by",
+  "escalation_note",
+  "possible_duplicate_of",
+  "merged_into",
+  "cb8",
+  "channel_sender",
+  "origin_communication",
+  "source_document",
+  "source_reference",
+  "import_batch"
+ ],
+ "fields": [
+  {
+   "fieldname": "tab_details",
+   "fieldtype": "Tab Break",
+   "label": "Details"
+  },
+  {
+   "fieldname": "title",
+   "fieldtype": "Data",
+   "in_global_search": 1,
+   "in_list_view": 1,
+   "label": "Title",
+   "length": 240,
+   "reqd": 1
+  },
+  {
+   "description": "Site-Module-Number, set once site and module are known",
+   "fieldname": "issue_code",
+   "fieldtype": "Data",
+   "in_global_search": 1,
+   "in_list_view": 1,
+   "label": "Issue Code",
+   "read_only": 1,
+   "search_index": 1
+  },
+  {
+   "allow_on_submit": 0,
+   "default": "New",
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Status",
+   "options": "New\nTriaged\nAssigned\nIn Progress\nReady for Retest\nReopened\nRetest Passed\nConfirmed\nIn UAT\nUAT Accepted\nAnswered\nClosed\nDeferred\nRejected\nMerged",
+   "read_only": 1,
+   "search_index": 1
+  },
+  {
+   "default": "Bug",
+   "fieldname": "issue_type",
+   "fieldtype": "Select",
+   "in_standard_filter": 1,
+   "label": "Issue Type",
+   "options": "Bug\nConfiguration\nChange Request\nQuery\nData Migration\nIntegration"
+  },
+  {
+   "fieldname": "cb1",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "Medium",
+   "fieldname": "severity",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Severity",
+   "options": "Blocker\nHigh\nMedium\nLow"
+  },
+  {
+   "default": "Test",
+   "fieldname": "found_in_phase",
+   "fieldtype": "Select",
+   "in_standard_filter": 1,
+   "label": "Found In Phase",
+   "options": "Test\nRetest\nUAT"
+  },
+  {
+   "fieldname": "project",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Project",
+   "options": "QA Project",
+   "search_index": 1
+  },
+  {
+   "fieldname": "site",
+   "fieldtype": "Link",
+   "in_standard_filter": 1,
+   "label": "Site",
+   "options": "QA Site"
+  },
+  {
+   "fieldname": "module",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Module",
+   "options": "QA Module"
+  },
+  {
+   "description": "Set from the module, or the project's only vendor",
+   "fieldname": "vendor",
+   "fieldtype": "Link",
+   "in_standard_filter": 1,
+   "label": "Vendor",
+   "options": "QA Vendor",
+   "search_index": 1
+  },
+  {
+   "fieldname": "cb2",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "screen",
+   "fieldtype": "Data",
+   "label": "Screen / Menu"
+  },
+  {
+   "fieldname": "test_cycle",
+   "fieldtype": "Link",
+   "in_standard_filter": 1,
+   "label": "Test Cycle",
+   "options": "QA Test Cycle"
+  },
+  {
+   "fieldname": "test_case",
+   "fieldtype": "Link",
+   "label": "Test Case",
+   "options": "QA Test Case"
+  },
+  {
+   "fieldname": "test_execution",
+   "fieldtype": "Link",
+   "label": "Test Execution",
+   "options": "QA Test Execution",
+   "read_only": 1
+  },
+  {
+   "fieldname": "sb_shots",
+   "fieldtype": "Section Break",
+   "label": "Screenshots"
+  },
+  {
+   "fieldname": "screenshots",
+   "fieldtype": "Table",
+   "label": "Screenshots",
+   "options": "QA Screenshot"
+  },
+  {
+   "fieldname": "media_files",
+   "fieldtype": "Table",
+   "label": "Recordings & Files",
+   "options": "QA Attachment"
+  },
+  {
+   "fieldname": "sb_desc",
+   "fieldtype": "Section Break",
+   "label": "Description"
+  },
+  {
+   "fieldname": "description",
+   "fieldtype": "Text Editor",
+   "label": "Description"
+  },
+  {
+   "fieldname": "steps_to_reproduce",
+   "fieldtype": "Small Text",
+   "label": "Steps To Reproduce"
+  },
+  {
+   "fieldname": "expected_result",
+   "fieldtype": "Small Text",
+   "label": "Expected Result"
+  },
+  {
+   "fieldname": "cb_desc",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "actual_result",
+   "fieldtype": "Small Text",
+   "label": "Actual Result"
+  },
+  {
+   "fieldname": "environment",
+   "fieldtype": "Data",
+   "label": "Environment (browser / device / URL)"
+  },
+  {
+   "fieldname": "build_found",
+   "fieldtype": "Data",
+   "label": "Build Found In"
+  },
+  {
+   "fieldname": "sb_people",
+   "fieldtype": "Section Break",
+   "label": "Reporter & Assignment"
+  },
+  {
+   "fieldname": "reported_by",
+   "fieldtype": "Link",
+   "in_standard_filter": 1,
+   "label": "Reported By",
+   "options": "User"
+  },
+  {
+   "fieldname": "raised_by_email",
+   "fieldtype": "Data",
+   "label": "Reporter Email",
+   "options": "Email"
+  },
+  {
+   "fieldname": "raised_by_phone",
+   "fieldtype": "Data",
+   "label": "Reporter Phone"
+  },
+  {
+   "fieldname": "reporter_name",
+   "fieldtype": "Data",
+   "label": "Reporter Name"
+  },
+  {
+   "default": "Web",
+   "fieldname": "source_channel",
+   "fieldtype": "Select",
+   "in_standard_filter": 1,
+   "label": "Source Channel",
+   "options": "Web\nPortal\nEmail\nWhatsApp\nTeams\nTelegram\nRaven\nAPI\nImport"
+  },
+  {
+   "default": "Now",
+   "fieldname": "reported_on",
+   "fieldtype": "Datetime",
+   "label": "Reported On"
+  },
+  {
+   "fieldname": "cb3",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "assigned_to",
+   "fieldtype": "Link",
+   "in_standard_filter": 1,
+   "label": "Assigned Developer",
+   "options": "User"
+  },
+  {
+   "default": "L1",
+   "description": "L1 = hospital helpdesk / super users, L2 = application support, L3 = vendor engineering",
+   "fieldname": "support_level",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Support Level",
+   "options": "L1\nL2\nL3",
+   "search_index": 1
+  },
+  {
+   "fieldname": "vendor_ref",
+   "fieldtype": "Data",
+   "label": "Vendor Reference"
+  },
+  {
+   "fieldname": "target_date",
+   "fieldtype": "Date",
+   "label": "Target Date"
+  },
+  {
+   "fieldname": "tab_updates",
+   "fieldtype": "Tab Break",
+   "label": "Updates"
+  },
+  {
+   "fieldname": "sb_updates",
+   "fieldtype": "Section Break",
+   "label": "Updates (tester & developer)"
+  },
+  {
+   "fieldname": "updates",
+   "fieldtype": "Table",
+   "label": "Updates",
+   "options": "QA Issue Update",
+   "read_only": 1
+  },
+  {
+   "fieldname": "tab_fix",
+   "fieldtype": "Tab Break",
+   "label": "Fix & Retest"
+  },
+  {
+   "fieldname": "sb_fix",
+   "fieldtype": "Section Break",
+   "label": "Developer Fix"
+  },
+  {
+   "fieldname": "root_cause",
+   "fieldtype": "Small Text",
+   "label": "Root Cause"
+  },
+  {
+   "fieldname": "resolution",
+   "fieldtype": "Small Text",
+   "label": "Resolution / Answer"
+  },
+  {
+   "fieldname": "cb4",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "fixed_in_build",
+   "fieldtype": "Data",
+   "label": "Fixed In Build"
+  },
+  {
+   "fieldname": "fixed_by",
+   "fieldtype": "Link",
+   "label": "Fixed By",
+   "options": "User",
+   "read_only": 1
+  },
+  {
+   "fieldname": "fixed_on",
+   "fieldtype": "Datetime",
+   "label": "Fixed On",
+   "read_only": 1
+  },
+  {
+   "collapsible": 0,
+   "depends_on": "eval:['Ready for Retest','Reopened','Retest Passed','Confirmed','In UAT','UAT Accepted','Closed'].includes(doc.status)",
+   "fieldname": "sb_retest",
+   "fieldtype": "Section Break",
+   "label": "Retest"
+  },
+  {
+   "default": "Pending",
+   "fieldname": "retest_result",
+   "fieldtype": "Select",
+   "label": "Retest Result",
+   "options": "Pending\nPass\nFail"
+  },
+  {
+   "fieldname": "retest_build",
+   "fieldtype": "Data",
+   "label": "Retested On Build"
+  },
+  {
+   "fieldname": "retest_notes",
+   "fieldtype": "Small Text",
+   "label": "Retest Notes"
+  },
+  {
+   "fieldname": "cb5",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "retest_by",
+   "fieldtype": "Link",
+   "label": "Retest By",
+   "options": "User",
+   "read_only": 1
+  },
+  {
+   "fieldname": "retest_on",
+   "fieldtype": "Datetime",
+   "label": "Retest On",
+   "read_only": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "retest_count",
+   "fieldtype": "Int",
+   "label": "Retest Count",
+   "read_only": 1
+  },
+  {
+   "fieldname": "retest_screenshots",
+   "fieldtype": "Table",
+   "label": "Retest Screenshots",
+   "options": "QA Screenshot"
+  },
+  {
+   "depends_on": "eval:['Confirmed','In UAT','UAT Accepted','Closed'].includes(doc.status)",
+   "fieldname": "sb_confirm",
+   "fieldtype": "Section Break",
+   "label": "Confirmation"
+  },
+  {
+   "fieldname": "confirmed_by",
+   "fieldtype": "Link",
+   "label": "Confirmed By",
+   "options": "User",
+   "read_only": 1
+  },
+  {
+   "fieldname": "cb6",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "confirmed_on",
+   "fieldtype": "Datetime",
+   "label": "Confirmed On",
+   "read_only": 1
+  },
+  {
+   "fieldname": "tab_uat",
+   "fieldtype": "Tab Break",
+   "label": "UAT"
+  },
+  {
+   "depends_on": "eval:['In UAT','UAT Accepted'].includes(doc.status) || doc.uat_result!='Pending'",
+   "fieldname": "sb_uat",
+   "fieldtype": "Section Break",
+   "label": "UAT"
+  },
+  {
+   "default": "Pending",
+   "fieldname": "uat_result",
+   "fieldtype": "Select",
+   "label": "UAT Result",
+   "options": "Pending\nAccepted\nRejected"
+  },
+  {
+   "fieldname": "uat_notes",
+   "fieldtype": "Small Text",
+   "label": "UAT Notes"
+  },
+  {
+   "fieldname": "cb7",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "uat_by",
+   "fieldtype": "Link",
+   "label": "UAT By",
+   "options": "User",
+   "read_only": 1
+  },
+  {
+   "fieldname": "uat_on",
+   "fieldtype": "Datetime",
+   "label": "UAT On",
+   "read_only": 1
+  },
+  {
+   "fieldname": "uat_screenshots",
+   "fieldtype": "Table",
+   "label": "UAT Screenshots",
+   "options": "QA Screenshot"
+  },
+  {
+   "fieldname": "tab_more",
+   "fieldtype": "Tab Break",
+   "label": "More"
+  },
+  {
+   "fieldname": "sb_track",
+   "fieldtype": "Section Break",
+   "label": "Tracking"
+  },
+  {
+   "default": "0",
+   "fieldname": "reopen_count",
+   "fieldtype": "Int",
+   "label": "Reopen Count",
+   "read_only": 1
+  },
+  {
+   "fieldname": "closed_on",
+   "fieldtype": "Datetime",
+   "label": "Closed On",
+   "read_only": 1
+  },
+  {
+   "fieldname": "escalated_on",
+   "fieldtype": "Datetime",
+   "label": "Last Escalated On",
+   "read_only": 1
+  },
+  {
+   "fieldname": "escalated_by",
+   "fieldtype": "Link",
+   "label": "Last Escalated By",
+   "options": "User",
+   "read_only": 1
+  },
+  {
+   "fieldname": "escalation_note",
+   "fieldtype": "Small Text",
+   "label": "Escalation Note",
+   "read_only": 1
+  },
+  {
+   "fieldname": "possible_duplicate_of",
+   "fieldtype": "Link",
+   "label": "Possible Duplicate Of",
+   "options": "QA Issue"
+  },
+  {
+   "description": "This ticket was a duplicate; follow the ticket it was merged into",
+   "fieldname": "merged_into",
+   "fieldtype": "Link",
+   "label": "Merged Into",
+   "options": "QA Issue",
+   "read_only": 1
+  },
+  {
+   "fieldname": "cb8",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "channel_sender",
+   "fieldtype": "Data",
+   "label": "Channel Sender ID",
+   "read_only": 1
+  },
+  {
+   "fieldname": "origin_communication",
+   "fieldtype": "Data",
+   "hidden": 1,
+   "label": "Origin Communication",
+   "read_only": 1
+  },
+  {
+   "fieldname": "source_document",
+   "fieldtype": "Data",
+   "label": "Source Document",
+   "read_only": 1
+  },
+  {
+   "fieldname": "source_reference",
+   "fieldtype": "Data",
+   "label": "Source Reference",
+   "read_only": 1
+  },
+  {
+   "fieldname": "import_batch",
+   "fieldtype": "Link",
+   "label": "Import Batch",
+   "options": "QA Import Batch",
+   "read_only": 1
+  }
+ ],
+ "image_field": null,
+ "index_web_pages_for_search": 0,
+ "links": [],
+ "make_attachments_public": 0,
+ "modified": "2026-11-23 01:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "QA Tracker",
+ "name": "QA Issue",
+ "naming_rule": "Expression",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "QA Lead",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "QA Tester",
+   "write": 1
+  },
+  {
+   "create": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Vendor Developer",
+   "write": 1
+  },
+  {
+   "create": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "UAT User",
+   "write": 1
+  },
+  {
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "QA Viewer"
+  },
+  {
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "GA Analyst"
+  },
+  {
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "GA Approver"
+  },
+  {
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "QA Management"
+  },
+  {
+   "create": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "L1 Support",
+   "write": 1
+  },
+  {
+   "create": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "L2 Support",
+   "write": 1
+  },
+  {
+   "create": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "L3 Support",
+   "write": 1
+  }
+ ],
+ "search_fields": "title,issue_code,status,module",
+ "sender_field": "raised_by_email",
+ "sender_name_field": "reporter_name",
+ "show_preview_popup": 1,
+ "show_title_field_in_link": 1,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "subject_field": "title",
+ "title_field": "title",
+ "track_changes": 1
+}

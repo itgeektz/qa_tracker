@@ -1,0 +1,50 @@
+{
+ "actions": [],
+ "creation": "2026-11-23 01:00:00.000000",
+ "custom": 0,
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "module",
+  "tester",
+  "test_case"
+ ],
+ "fields": [
+  {
+   "fieldname": "module",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Module",
+   "options": "QA Module",
+   "reqd": 1
+  },
+  {
+   "fieldname": "tester",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Tester",
+   "options": "User",
+   "reqd": 1
+  },
+  {
+   "description": "Optional: leave blank to assign every active test case of the module",
+   "fieldname": "test_case",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Test Case",
+   "options": "QA Test Case"
+  }
+ ],
+ "istable": 1,
+ "links": [],
+ "modified": "2026-11-23 01:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "QA Tracker",
+ "name": "QA Cycle Assignment",
+ "owner": "Administrator",
+ "permissions": [],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

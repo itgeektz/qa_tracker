@@ -1,0 +1,129 @@
+{
+ "actions": [],
+ "autoname": "format:IMP-{####}",
+ "creation": "2026-11-23 01:00:00.000000",
+ "custom": 0,
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "source_file",
+  "project",
+  "site",
+  "default_module",
+  "cb1",
+  "test_cycle",
+  "reported_by",
+  "status",
+  "issues_created",
+  "sb_log",
+  "log"
+ ],
+ "fields": [
+  {
+   "description": "A Word (.docx) observation document or an Excel (.xlsx) issue tracker",
+   "fieldname": "source_file",
+   "fieldtype": "Attach",
+   "label": "Source File",
+   "reqd": 1
+  },
+  {
+   "fieldname": "project",
+   "fieldtype": "Link",
+   "label": "Project",
+   "options": "QA Project"
+  },
+  {
+   "fieldname": "site",
+   "fieldtype": "Link",
+   "label": "Site",
+   "options": "QA Site",
+   "reqd": 1
+  },
+  {
+   "description": "Used when the module cannot be guessed from the text",
+   "fieldname": "default_module",
+   "fieldtype": "Link",
+   "label": "Default Module",
+   "options": "QA Module"
+  },
+  {
+   "fieldname": "cb1",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "test_cycle",
+   "fieldtype": "Link",
+   "label": "Test Cycle",
+   "options": "QA Test Cycle"
+  },
+  {
+   "fieldname": "reported_by",
+   "fieldtype": "Link",
+   "label": "Reported By",
+   "options": "User"
+  },
+  {
+   "default": "Draft",
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Status",
+   "options": "Draft\nCompleted\nFailed",
+   "read_only": 1
+  },
+  {
+   "fieldname": "issues_created",
+   "fieldtype": "Int",
+   "in_list_view": 1,
+   "label": "Issues Created",
+   "read_only": 1
+  },
+  {
+   "fieldname": "sb_log",
+   "fieldtype": "Section Break",
+   "label": "Log"
+  },
+  {
+   "fieldname": "log",
+   "fieldtype": "Code",
+   "label": "Log",
+   "read_only": 1
+  }
+ ],
+ "links": [],
+ "modified": "2026-11-23 01:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "QA Tracker",
+ "name": "QA Import Batch",
+ "naming_rule": "Expression",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "QA Lead",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}
